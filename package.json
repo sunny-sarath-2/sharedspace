@@ -22,5 +22,10 @@
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.2.1",
     "mongoose": "^5.9.5"
+  },
+  "devDependencies": {
+    "cities": "^2.0.0",
+    "fakerator": "^0.3.1",
+    "random-coordinates": "^1.0.1"
   }
 }

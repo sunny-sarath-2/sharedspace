@@ -20,3 +20,31 @@ exports.checkEmailExistence = email => {
     user_email: email
   });
 };
+
+exports.getUsersOnCondition = (conditionOn, condition) => {
+  return User.find({
+    [conditionOn]: condition
+  });
+};
+
+exports.storeUserSearch = async (search, user) => {
+  let userDetails = await User.findById(user);
+  let finalResult = !!userDetails.search_history
+    ? userDetails.search_history
+    : [];
+  if (finalResult.length < 5) {
+    if (!finalResult.includes(search)) {
+      finalResult.push(search);
+    }
+  } else {
+    if (!finalResult.includes(search)) {
+      finalResult.shift();
+      finalResult.push(search);
+    }
+  }
+
+  await User.updateOne(
+    { _id: user },
+    { $set: { search_history: finalResult } }
+  );
+};

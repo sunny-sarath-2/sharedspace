@@ -11,7 +11,6 @@ exports.login = async (req, res) => {
     let result = await login(email, md5(password));
     let token = null;
     if (!!result) {
-      console.log(result);
       let { user_firstName, user_email, _id } = result[0];
       token = generateToken({ user_firstName, user_email, _id });
     }

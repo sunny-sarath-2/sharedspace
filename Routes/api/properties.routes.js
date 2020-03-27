@@ -6,8 +6,7 @@ const {
   getSinglePropertie,
   createPropertie,
   updatePropertie,
-  disablePropertie,
-  checkGeo
+  disablePropertie
 } = require("../../Controllers/properties.controller");
 const { verify } = require("../../common/Common");
 
@@ -16,6 +15,5 @@ router.get("/:id", verify, getSinglePropertie);
 router.post("/create", verify, createPropertie);
 router.put("/update", verify, updatePropertie);
 router.delete("/disable", verify, disablePropertie);
-router.get("/", checkGeo);
 
 module.exports = router;

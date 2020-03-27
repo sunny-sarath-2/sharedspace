@@ -70,11 +70,6 @@ exports.disablePropertie = async (req, res) => {
   res.status(200).json(outputFormat(null, "under development", 200, null));
 };
 
-exports.checkGeo = async (req, res) => {
-  let result = await checkGeo();
-  res.json(result);
-};
-
 const createPropertieSchema = Joi.object().keys({
   propertie_title: Joi.string().required(),
   propertie_description: Joi.string().required(),

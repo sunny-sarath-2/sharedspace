@@ -13,7 +13,8 @@ let users_schema = mongoose.Schema({
   disabledAt: Date,
   disabledReason: String,
   disabled: { type: Boolean, default: false },
-  user_type: { type: Number, required: true }
+  user_type: { type: Number, required: true },
+  search_history: { type: [String], default: [] }
 });
 
 const users_model = mongoose.model("users", users_schema);

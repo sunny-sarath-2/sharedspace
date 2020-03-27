@@ -18,17 +18,3 @@ exports.createPropertie = propertie => {
 exports.updatePropertie = () => {};
 
 exports.disablePropertie = () => {};
-
-exports.checkGeo = () => {
-  return Properties.find({
-    propertie_location: {
-      $near: {
-        $geometry: {
-          type: "Point",
-          coordinates: [17.438692, 78.394647]
-        },
-        $maxDistance: 2000
-      }
-    }
-  });
-};

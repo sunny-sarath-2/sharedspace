@@ -45,7 +45,6 @@ exports.createUser = async (req, res) => {
     };
     let emailVerification = await checkEmailExistence(params.user_email);
     if (emailVerification.length != 0) {
-      console.log(emailVerification);
       throw new Error("email already exisits");
     }
     let result = await createUser(user);

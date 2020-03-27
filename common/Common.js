@@ -31,7 +31,6 @@ exports.verify = (req, res, next) => {
 };
 
 exports.generateToken = result => {
-  console.log(result);
   try {
     const token = jwt.sign({ data: result }, "secret", { expiresIn: "8h" });
     return token;
